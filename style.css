@@ -1,0 +1,1139 @@
+/*------------------------------------*\
+  #CUSTOM-PROPERTIES
+\*------------------------------------*/
+
+:root {
+  /* Font */
+
+  --font-primary: "Roboto", serif;
+
+  /* Colors */
+
+  --color-Primary-Green: #34c759;
+  --color-Secondary-White: #ffffff;
+  --color-Secondary-Black: #000000;
+
+  --color-Secondary-Black-Dark: #0000008c;
+
+  --color-Secondary-Dark-Gray: #252525;
+  --color-Secondary-Dark-Gray-Nav: #171717d8;
+  --color-Secondary-Dark-Gray-Text: #a6a6a6;
+
+  --color-Secondary-Dark-Gray-Line: #303030;
+
+  --color-Secondary-Dark-Gray-Links: #818181;
+  --color-Secondary-Light-Gray: #737373;
+}
+
+/*------------------------------------*\
+    #RESET
+  \*------------------------------------*/
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: var(--font-primary);
+  scroll-behavior: smooth;
+}
+
+img,
+video {
+  width: 100%;
+  height: auto;
+}
+
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+
+/*------------------------------------*\
+    #COMPONENTS
+\*------------------------------------*/
+
+/* ***************** BUTTON******************* */
+
+.btn {
+  font-weight: 700;
+  padding: 1rem 3rem; /* cambiar en 768px */
+  border-radius: 50px;
+  background-color: var(--color-Primary-Green);
+  border: none;
+  letter-spacing: 0.1rem;
+  cursor: pointer;
+}
+
+/* ************************ SECTION CARD ************************* */
+
+.card {
+  width: 18rem;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--color-Secondary-Dark-Gray);
+}
+
+.card__section {
+  padding: 3rem 0 9rem;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.card__info {
+  padding: 1rem 1rem 2.5rem;
+}
+
+.card__views {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.image__card {
+  width: 100%;
+  height: 13rem;
+  object-fit: cover;
+}
+
+.views__number {
+  font-size: .7rem;
+  font-weight: 600;
+  color: #b3b3b3;
+  margin-left: .25rem;
+}
+
+
+.views__star {
+  display: flex;
+  align-items: center;
+}
+
+
+/* ********************* CARROUSEL ****************** */
+
+.section__carrousel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.carrousel__image {
+  display: flex;
+  width: 80%;
+  height: 230px;
+}
+
+.carrousel__image img {
+  width: 0;
+  flex-grow: 1;
+  object-fit: cover;
+  opacity: .8;
+  transition: .5s ease-in-out;
+}
+
+.carrousel__image img:hover {
+  cursor: crosshair;
+  width: 150px;
+  opacity: 1;
+  filter: contrast(120%);
+}
+
+/* ********************* CONTAINER SECTION TITLE ****************** */
+
+.container__section {
+  width: 90%;
+  background-color: var(--color-Secondary-Dark-Gray);
+  margin: 0 auto;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
+}
+
+.container__title {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.title__title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--color-Secondary-Dark-Gray-Line);
+  letter-spacing: .4rem;
+}
+
+.title__subtitle {
+  position: absolute;
+  font-size: 1rem;
+  letter-spacing: .2rem;
+  top: 1.8rem;
+}
+
+/* ***************** DETAIL CARDS - CARD *************** */
+
+.detail__card {
+  width: 15rem;
+  padding: 1.5rem 1.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: var(--color-Secondary-Dark-Gray);
+  border-radius: .4rem;
+}
+
+.detail__card:hover {
+  background-color: var(--color-Primary-Green);
+}
+
+.detail__card:hover hr{
+  border: 1px solid var(--color-Secondary-Black-Dark);
+}
+
+.detail__card:hover h3 {
+  color: var(--color-Secondary-Black-Dark);
+  font-weight: 400;
+}
+
+.detail__card:hover p {
+  color: var(--color-Secondary-Black-Dark);
+  font-weight: 400;
+}
+
+.flex__details {
+  padding: 3rem 0 7rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+/* ************* HEADER & NAV ************* */
+
+.btn__menu {
+  position: absolute;
+  bottom: 65px;
+  color: var(--color-Secondary-White);
+  font-size: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.btn__menu--active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.btn__menu--disabled {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.header {
+  width: 100%;
+  padding: 3rem 0 2rem;
+  position: fixed;
+  z-index: 777;
+  bottom: 0;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: var(--color-Secondary-Dark-Gray-Nav);
+}
+
+.header__logo--img {
+  width: 200px;
+}
+
+.nav {
+  width: 100%;
+  position: absolute;
+  bottom: 103px;
+  padding: 1rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--color-Secondary-Black);
+
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out, visibility 0.4s ease-in-out;
+}
+
+.nav--active {
+  visibility: visible;
+  opacity: 1;
+}
+
+.link {
+  text-decoration: none;
+  color: var(--color-Secondary-White);
+  letter-spacing: -0.06rem;
+  font-weight: 400;
+  font-size: 0.8rem;
+  border-right: 1px solid var(--color-Secondary-Dark-Gray-Links);
+  padding-right: 20px;
+}
+
+.nav a:first-child {
+  border-left: 1px solid var(--color-Secondary-Dark-Gray-Links);
+  padding-left: 20px;
+}
+
+.nav__social {
+  width: 50px;
+  display: flex;
+  gap: 1rem;
+}
+
+.link--active {
+  color: var(--color-Primary-Green);
+}
+
+/*------------------------------------*\
+  #UTILITIES
+  \*------------------------------------*/
+/***************\
+  #Mobile - 320px - XS
+  \***************/
+.border {
+  border: 1px solid white;
+}
+
+.p-b-8 {
+  padding-bottom: .5rem;
+}
+
+.l-spacing-05 {
+  letter-spacing: .5rem;
+}
+/****************\
+  #Tablet - 640px - S
+  \****************/
+
+@media (640px < width) {
+}
+
+/******************\
+  #Tablet L - 768px - M
+  \******************/
+
+@media (768px < width) {
+}
+
+/******************\
+  #Desktop - 1024px - L
+  \******************/
+
+@media (1024px < width) {
+}
+
+/*********************\
+  #Desktop XL - 1280px - XL
+  \*********************/
+
+@media (1280px < width) {
+}
+
+/*************\
+  #4K - 1536px - XXL
+  \*************/
+
+@media (1600px < width) {
+}
+
+/*------------------------------------*\
+  #SITE-STYLES
+  \*------------------------------------*/
+
+/***************\
+  #Mobile - 320px - XS
+  \***************/
+
+body {
+  position: relative;
+  color: var(--color-Secondary-White);
+  background-color: #000;
+}
+
+.about__info {
+  padding: 2rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.card__chefs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.card__small--date {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.card__small--date h6 {
+  padding: .45rem;
+  background-color: var(--color-Secondary-Black-Dark);
+}
+
+.card__small--date p {
+  font-size: .75rem;
+}
+
+.card__small--date--green h6{
+  color: var(--color-Secondary-White);
+  background-color: var(--color-Secondary-Black);
+}
+
+.card__social {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+}
+
+
+
+
+.card__social span {
+  font-size: .75rem;
+}
+
+
+
+
+.chefs__avatar {
+display: flex;
+align-items: center;
+}
+
+.chefs__avatar__data {
+  margin-left: 1.5rem;
+
+}
+
+.chefs__avatar__data h5 {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin-bottom: .5rem;
+}
+
+.chefs__avatar__data p {
+  font-size: .75rem;
+  color: var(--color-Secondary-Dark-Gray-Text);
+}
+
+
+.chefs__avatar__image {
+  width: 65px;
+  height: 65px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.chefs__images {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chefs__images img {
+  width: 6.25rem;
+  height: 5rem;
+  object-fit: cover;
+}
+
+
+
+.container__recipes {
+  display: grid;
+  gap: 3rem;
+  justify-items: center;
+}
+
+
+.detail__card__title {
+  font-weight: 300;
+}
+
+.detail__card__text {
+  color: var(--color-Secondary-Dark-Gray-Text);
+  font-size: .8rem;
+  line-height: 1.2rem;
+  font-weight: 300;
+}
+
+.dishes__card__title {
+font-size: 1.5rem; 
+font-weight: 300;
+color: var(--color-Secondary-White);
+}
+
+.dishes__card__subtitle {
+  font-size: .75rem;
+  color: var(--color-Secondary-Dark-Gray-Text);
+}
+
+
+.dishes__card__text {
+  font-size: .7rem;
+  color: var(--color-Secondary-Dark-Gray-Text);
+  padding: 1rem 0 2rem;
+}
+
+.dishes__btn {
+  font-size: .5rem;
+  font-weight: 700;
+  padding: .5rem 1rem;
+}
+
+.footer {
+  align-items: center;
+  background-color: var(--color-Secondary-Dark-Gray-Nav);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 103px;
+  padding: 0 0 1rem 0;
+}
+
+.footer__logo {
+  padding: 1rem 0;
+  width: 200px;
+
+}
+
+.footer__text {
+  font-size: .75rem;
+  color: var(--color-Secondary-Dark-Gray-Text);
+}
+
+.grid__card__info {
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-Secondary-Black-Dark);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+
+.hero__home {
+  width: 100%;
+  height: 100vh;
+  background-image: url(./assets/images/hero-image.jpeg);
+  background-position: 25% center;
+  background-size: cover;
+}
+
+.hero__home--dark {
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.2423738532110092) 0%,
+    rgba(0, 0, 0, 1.7573585626911314) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 3rem;
+  padding-bottom: 5rem; /* QUITAR EN TABLET */
+}
+
+.home__title {
+  font-size: 2rem;
+  font-weight: 200;
+  line-height: 2.5rem;
+}
+
+.home__text {
+  max-width: 38rem;
+  font-size: .75rem;
+  padding: 0 2rem;
+  line-height: 1.15rem;
+}
+
+.home__info {
+  display: none;
+}
+
+.home__info__footer {
+  width: 100%;
+  display: none;
+  justify-content: space-around;
+  border-bottom: 1px solid var(--color-Secondary-Light-Gray);
+}
+
+.info__footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+}
+
+.info__footer img{
+  width: .85rem;
+}
+
+.info__footer p:nth-child(2) {
+  font-size: .85rem;
+}
+
+.info__footer p:nth-child(3) {
+  font-size: .75rem;
+  color: var(--color-Secondary-Dark-Gray-Links);
+}
+
+.info__text {
+  max-width: 43rem;
+  padding: 0 1rem;
+  font-size: .75rem;
+  line-height: 1.25rem;
+  color: var(--color-Secondary-Dark-Gray-Text);
+  text-align: center;
+}
+
+
+
+
+.line__divider {
+  width: 60px;
+}
+
+.line__divider--green {
+  border: 1px solid var(--color-Primary-Green);
+}
+
+.line__divider--black {
+  border: 1px solid var(--color-Secondary-Black-Dark);
+  
+}
+
+.line__divider--margin {
+  margin: 0 auto;
+}
+
+
+.recipes__card__date {
+  font-size: .7rem;
+}
+
+.recipes__card__info {
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.75rem;
+}
+
+.recipes__card__info--small {
+  line-height: 1.35rem;
+  font-size: .75rem;
+}
+
+.recipes__card__name {
+  font-size: .75rem;
+}
+
+.recipes__card__small {
+  width: 19rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #303030;
+  border-radius: 5px;
+}
+
+.recipes__card__small--bckimage {
+  background-image: url(./assets/images/image-recipes-3.jpg);
+  background-size: cover;
+  background-position: center;
+  padding: 0;
+}
+
+.recipes__card__small--bckgreen {
+  background-color: var(--color-Primary-Green);
+  color: var(--color-Secondary-Black);
+}
+
+.recipes__card__small--data {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recipes__card__social {
+  display: flex;
+  gap: 1rem;
+}
+
+.recipes__card__social--green {
+  font-weight: 800;
+
+}
+
+.recipes__card__social img {
+  width: 15px;
+}
+
+.recipes__card__title {
+  padding: .45rem;
+  background-color: var(--color-Secondary-Black-Dark);
+}
+
+
+
+.recipes__grid {
+  display: grid;
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 5rem 0;
+}
+
+.recipes__grid__card {
+  width: 19rem;
+  height: 19rem;
+  background-image: url(./assets/images/image-recipes-1.jpg);
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+}
+
+.social__card {
+  background-color: var(--color-Secondary-Dark-Gray-Line);
+  border-radius: 5px;
+  overflow: hidden;
+  width: 300px;
+}
+
+.social__card__info {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.social__card__info p:nth-child(1) {
+  color: var(--color-Secondary-Light-Gray);
+  font-size: 0.75rem;
+}
+
+.social__card__info p:nth-child(2) {
+  font-size: .85rem;
+  color: var(--color-Secondary-Dark-Gray-Text);
+  line-height: 1.5rem;
+}
+
+.social__card__info p:nth-child(3) {
+  color: var(--color-Primary-Green);
+  font-size: .85rem;
+}
+
+.social__card__img {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  align-items: center;
+}
+
+.social__card__info,
+.social__card__img {
+  height: 200px;
+}
+
+.social__card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.social__card__title {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-Secondary-Light-Gray);
+}
+
+.social__card__title button {
+  padding: .5rem 1rem;
+  font-size: .65rem;
+  font-weight: 700;
+  color: var(--color-Secondary-Dark-Gray-Text);
+  border-radius: 50px;
+  border: 1px solid var(--color-Secondary-Light-Gray);
+  background-color: transparent;
+  transition: background-color .3s ease-in-out, color .3s ease-in-out;
+}
+
+.section__chefs {
+  padding: 3rem 0;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5rem;
+}
+
+.section__social {
+  padding: 3rem 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.social--flex {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.title__social {
+  display: flex;
+  align-items: center;
+}
+
+.title__social img {
+  width: 2.25rem;
+  border: 1px solid var(--color-Secondary-Light-Gray);
+  border-radius: 50%;
+  padding: .40rem;
+}
+
+.title__social p {
+  color: var(--color-Secondary-Dark-Gray-Text);
+  font-size: .85rem;
+  margin-left: 1rem;
+}
+
+.work__grid__card {
+  width: 255px;
+}
+
+
+
+/****************\
+  #Tablet - 640px - S
+  \****************/
+
+@media (640px < width) {
+}
+
+/******************\
+  #Tablet L - 768px - M
+  \******************/
+
+@media (768px < width) {
+
+  .about__info {
+    padding: 4rem 0;
+    gap: 4rem;
+  }
+
+  .about__text {
+    max-width: 45rem;
+    font-size: 1rem;
+    padding: 0 1rem;
+    text-align: center;
+    color: var(--color-Secondary-Dark-Gray-Text);
+    line-height: 1.75rem;
+  }
+
+  
+  .btn__menu {
+    display: none;
+  }
+
+  .container__title {
+    padding-top: 100px;
+  }
+
+
+  .container__section {
+    margin-bottom: 7rem;
+  }
+
+  .flex__details {
+    padding: 5rem 0 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .footer {
+    align-items: center;
+    background-color: var(--color-Secondary-Dark-Gray-Nav);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0;
+    padding: 0 0 2rem 0;
+  }
+
+  .header {
+    width: 100%;
+    position: fixed;
+    padding: 0;
+    top: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    height: 100px;
+    /* background-color: transparent; */
+    border-bottom: 1px solid var(--color-Secondary-Dark-Gray-Line);
+  }
+
+  .header__logo--img {
+    width: 160px;
+    height: auto;
+  }
+
+  .hero__home {
+    width: 100%;
+    height: 100vh;
+    background-image: url(./assets/images/hero-image.jpeg);
+    background-position: 25% 15%;
+    background-size: cover;
+  }
+
+  .hero__home--dark {
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.2423738532110092) 0%,
+      rgba(0, 0, 0, 1.7573585626911314) 100%
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    padding: 0;
+  }
+
+  .home__info__footer {
+    border-bottom: 1px solid var(--color-Secondary-Light-Gray);
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem 0;
+    width: 75%;
+    
+  }
+
+  .home__title {
+    font-size: 4rem;
+    letter-spacing: .75rem;
+    line-height: 4.5rem;
+  }
+
+  .home__text {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .home__info {
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .home__info--items {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: .5rem;
+  }
+
+  .info__text {
+    font-size: .8rem;
+  }
+
+  .info__items__image {
+    width: 1.15rem;
+  }
+
+  .nav {
+    width: auto;
+    position: relative;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    opacity: 1;
+    visibility: visible;
+    background-color: transparent;
+  }
+
+  .nav a {
+    text-decoration: none;
+    letter-spacing: -0.06rem;
+    font-weight: 400;
+    font-size: 1rem;
+    border-right: none;
+    padding-right: 20px;
+  }
+
+  .nav a:first-child {
+    border-left: none;
+    padding-left: 20px;
+  }
+
+  .nav__social {
+    width: 45px;
+    display: none;
+    gap: 0.5rem;
+  }
+
+  .title__title {
+    font-size: 5.5rem;
+    letter-spacing: 1rem;
+  }
+  .title__subtitle {
+    font-size: 1.75rem;
+    top: 135px;
+    letter-spacing: .5rem;
+  }
+
+  .section__chefs {
+    padding: 3rem 0;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    gap: 5rem;
+  }
+
+  .section__social {
+    padding: 6rem 0 15rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5rem;
+  }
+
+  .social__card__title button:hover {
+    background-color: var(--color-Primary-Green);
+    color: var(--color-Secondary-Black);
+    cursor: pointer;
+  }
+}
+
+/******************\
+  #Desktop - 1024px - L
+  \******************/
+
+@media (1024px < width) {
+
+  .card__section {
+   max-width: 62rem;
+   gap: 4rem;
+   padding-top: 5rem;
+  }
+
+  /* CAMBIAR MEDIDAS */
+
+  .chefs__avatar {
+    justify-content: center;
+  }
+  .chefs__images img {
+    width: 12rem;
+    height: 10rem;
+    object-fit: cover;
+    filter:grayscale(.5) ;
+    transition: width .4s ease-in-out, filter .4s ease-in-out;
+  }
+  
+  .chefs__images img:hover {
+    width: 16rem;
+    filter: grayscale(0);
+  }
+
+  .carrousel__image {
+    display: flex;
+    width: 80%;
+    height: 380px;
+}
+
+.recipes__card__small {
+  width: 420px;
+}
+
+.recipes__grid {
+  margin: 0 auto;
+  width: min-content;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  justify-items: center;
+  padding: 5rem 0;
+}
+
+.recipes__grid__card {
+  width: 420px;
+  height: 100%;
+  grid-column: 1/2;
+  grid-row: 1/4;
+}
+
+  .section__carrousel {
+    gap: 4rem;
+    padding-bottom: 6rem;
+  }
+
+  .section__container {
+    padding: 2rem 0;
+    width: 70%;
+    background-color: var(--color-Secondary-Dark-Gray);
+  }
+
+  .home__info {
+    width: 50%;
+  }
+
+  
+}
+
+/*********************\
+  #Desktop XL - 1280px - XL
+  \*********************/
+
+@media (1280px < width) {
+
+  .carrousel__image {
+    display: flex;
+    height: 380px;
+  }
+
+  .section__container {
+    padding: 2rem 0;
+    width: 55%;
+    background-color: var(--color-Secondary-Dark-Gray);
+  }
+
+}
+
+/*************\
+  #4K - 1536px - XXL
+  \*************/
+
+@media (1600px < width) {
+}
