@@ -536,7 +536,7 @@ color: var(--color-Secondary-White);
 .hero__home {
   width: 100%;
   height: 100vh;
-  background-image: url(./assets/images/hero-image.jpeg);
+  background-image: url(./assets/images/hero-image.webp);
   background-position: 25% center;
   background-size: cover;
 }
